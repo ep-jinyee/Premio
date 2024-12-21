@@ -3,22 +3,14 @@ namespace Premio.Models;
 
 public class Annoucement
 {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Body { get; set; }
+    public Guid Id { get; set; }
+    public string Title { get; set; } = null!;
+    public string Body { get; set; } = null!;
     public bool Published { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-
-    // Foreign key to Premise
-    public string PremiseId { get; set; }
-    
-    // Navigation property for Premise
-    public Premise Premise { get; set; }
-
-    // Foreign key to User (CreatedBy)
-    public string UserId { get; set; }
-    
-    // Navigation property for the User (Creator of the announcement)
-    public User CreatedBy { get; set; }
+    public Guid PremiseId { get; set; }
+    public Premise Premise { get; set; } = null!;
+    public Guid CreatedByUserId { get; set; }
+    public User CreatedByUser { get; set; } = null!;
 }
